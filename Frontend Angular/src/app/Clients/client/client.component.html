@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Liste des clients</h4>
+          <div class="row">
+            <div class="col-md-12 pull-right">
+                <a routerLink="/ajouterClient" class="btn btn-danger pull-right">Enregistrer</a>
+                <div class="col-sm-4 pull-right">
+                    <input type="text" class="form-control" placeholder="recherche" #myInput [(ngModel)]="name">
+                    
+                </div>
+            </div>
+        </div>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>
+                    Nom
+                  </th>
+                  <th>
+                    Email
+                  </th>
+                  <th>
+                    Country
+                  </th>
+                  <th>
+                    City
+                  </th>
+                  <th>
+                    Phone
+                  </th>
+                  <th>
+                    Date d'ajout
+                  </th>
+                  <th>
+                    Action
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let Client of Clients | filter:name | paginate:{ id: 'listing',  itemsPerPage: 8, currentPage: p}">
+                  <td class="py-1">
+                    {{Client.name}}
+                  </td>
+                  <td>
+                    {{Client.email}}
+                  </td>
+                  <td>
+                    {{Client.country}}
+                  </td>
+                  <td>
+                    {{Client.city}}
+                  </td>
+                  <td>
+                    {{Client.phone}}
+                  </td>
+                  <td>
+                    {{Client.created_at | date:'dd-MM-yyyy'}}
+                  </td>
+                  <td>
+                    <div ngbDropdown class="d-inline-block">
+                      <button class="btn btn-warning icon-btn btn-sm" type="button" id="dropdownMenuIconButton1" ngbDropdownToggle>
+                        <i class="mdi mdi-account-details"></i>
+                      </button>
+                      <div ngbDropdownMenu aria-labelledby="dropdownMenuIconButton1">
+                        <button type="button" class="btn btn-link btn-fw" routerLink="/modifierClient/{{Client.id}}"><span class="mdi mdi-update"></span>   update</button><br>
+                        <button type="button" class="btn btn-link btn-fw" (click)="delete(Client)"><span class="mdi mdi-delete-sweep"></span>   delete</button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <pagination-controls id="listing" directionLinks="true" (pageChange)="p = $event" class=" pull-right"></pagination-controls>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+  

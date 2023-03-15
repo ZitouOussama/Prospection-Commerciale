@@ -1,0 +1,100 @@
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" [ngClass]="{'show':showModal}">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+         <button type="button" class="close" (click)="showModal=false" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body">
+         <form>
+           <div class="form-group">
+             <label for="recipient-name" class="col-form-label">Recipient:</label>
+             <input type="text" class="form-control" id="recipient-name">
+           </div>
+           <div class="form-group">
+             <label for="message-text" class="col-form-label">Message:</label>
+             <textarea class="form-control" id="message-text"></textarea>
+           </div>
+         </form>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" (click)="showModal=false" data-dismiss="modal">Close</button>
+         <button type="button" class="btn btn-primary">Send message</button>
+       </div>
+     </div>
+   </div>
+ </div>
+
+<div class="row">
+    
+    <div class="col-md-12 grid-margin stretch-card">
+
+        
+      <div class="card">
+        <div class="card-body">
+            
+          <h4 class="card-title">Gestion du projets</h4>
+            <div class="row">
+                <div class="col-md-12 pull-right">
+                    <a routerLink="/ajouterClient" class="btn btn-danger pull-right ml-2">Enregistrer</a>
+                    <div class="col-sm-10 pull-right">
+                        <input type="text" style="padding: 15px 5px;" class="form-control" placeholder="Entrer le nom de projet">
+                        
+                    </div>
+                </div>
+            </div><br>
+          <ngb-tabset class="tab-basic">
+            <ngb-tab>
+              <ng-template ngbTabTitle>
+                <i class="mdi mdi-home-outline"></i>Documents
+              </ng-template>
+              <ng-template ngbTabContent>
+                <div class="row">
+                  <div class="col-md-8 offset-md-4" >
+                      <img  src="assets/Folder_Upload.png" style="height: 200px;width: 200px;" class="ml-5" alt=""><br>
+                      <h3>Déposer vous document ici</h3><br>
+                      <h6 class="ml-5">ou cliquer sur ajouter un docuemnt</h6><br>
+                      <button class="btn btn-danger ml-5" (click)="fileInput.click()">Ajouter un document</button><br>
+                      
+                  <input style="display: none;" type="file" name="" id="" #fileInput>
+                </div>
+                </div>
+                
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab>
+              <ng-template ngbTabTitle>
+                <i class="mdi mdi-account-outline"></i>Lien d'accés
+              </ng-template>
+              <ng-template ngbTabContent>
+                <div class="row">
+                  <div class="col-md-4 offset-md-5"><button class="btn btn-success" (click)="showModal=true">Envoyer les documents</button></div>
+                </div>
+
+                
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab>
+              <ng-template ngbTabTitle>
+                <i class="mdi mdi-message-text-outline"></i>Statistiques
+              </ng-template>
+              <ng-template ngbTabContent>
+                <div class="row">
+                  <div class="col-md-4"><img class="img-fluid w-100 rounded" src="assets/images/samples/300x300/3.jpg" alt=""></div>
+                  <div class="col-md-8">
+                    <h5 class="mb-3">Heading</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi molestias iusto qui eos, vero provident ipsa neque! Molestiae, aperiam</p>
+                  </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod ipsa odio dolore perspiciatis laudantium repellat quae, facere, laboriosam omnis dolorem quaerat quis assumenda!</p>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+        </div>
+      </div>
+    </div>
+  </div>

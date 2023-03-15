@@ -1,0 +1,85 @@
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Liste des utilisateurs</h4>
+          <div class="row">
+            <div class="col-md-12 pull-right">
+                <a routerLink="/ajouterUtilisateur" class="btn btn-danger pull-right">Enregistrer</a>
+                <div class="col-sm-4 pull-right">
+                    <input type="text" class="form-control" placeholder="recherche" #myInput [(ngModel)]="name" >
+                    
+                </div>
+            </div>
+        </div>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>
+                    #
+                  </th>
+                  <th>
+                    Nom
+                  </th>
+                  <th>
+                    Email
+                  </th>
+                  <th>
+                    Phone
+                  </th>
+                  <th>
+                    Role
+                  </th>
+                  <th>
+                    Date d'ajout
+                  </th>
+                  <th>
+                    Action
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let User of Users | filter:name | paginate:{ id: 'listing',  itemsPerPage: 8, currentPage: p}">
+                <td class="py-1">
+                    <img [src]="User.image_src ? imagePath+User.image_src : 'assets/images/noImage.png'" alt="">
+                    
+                </td>
+                <td class="py-1">
+                    {{User.username}}
+                  </td>
+                  <td>
+                    {{User.email}}
+                  </td>
+                  <td>
+                    {{User.phone}}
+                  </td>
+                  <td>
+                    {{User.name}}
+                  </td>
+                  <td>
+                    {{User.created_at | date:'dd-MM-yyyy'}}
+                  </td>
+                  <td>
+                    <div ngbDropdown class="d-inline-block">
+                      <button class="btn btn-warning icon-btn btn-sm" type="button" id="dropdownMenuIconButton1" ngbDropdownToggle>
+                        <i class="mdi mdi-account-details"></i>
+                      </button>
+                      <div ngbDropdownMenu aria-labelledby="dropdownMenuIconButton1">
+                        <button type="button" class="btn btn-link btn-fw" routerLink="/modifierUser/{{User.id}}"><span class="mdi mdi-update"></span>   update</button><br>
+                        <button type="button" class="btn btn-link btn-fw" (click)="delete(User)"><span class="mdi mdi-delete-sweep"></span>   delete</button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <pagination-controls id="listing" directionLinks="true" (pageChange)="p = $event" class=" pull-right"></pagination-controls>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+  

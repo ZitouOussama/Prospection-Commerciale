@@ -1,0 +1,27 @@
+<section id="login" class="mb-5 mt-5" >
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
+        <div class="card_login">
+          <div class="card">
+            <div class="card-body text-center">
+              <form #requestResetForm=ngForm (ngSubmit)="onSubmit()">
+                <h1 class="h3 mb-3 font-weight-normal">Reset password</h1>
+                <div class="alert alert-danger" role="alert" [hidden]="!error">
+                  {{ error }}
+                </div>
+                <div class="form-group">
+                  <input type="email" name="Nmail" class="form-control"  placeholder="Email" [(ngModel)]="form.email" required>
+                </div>
+                <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="!requestResetForm.valid">Reset</button><br>
+                <small class="float-right">
+                  <a routerLink="/login">I have account</a>
+                </small>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

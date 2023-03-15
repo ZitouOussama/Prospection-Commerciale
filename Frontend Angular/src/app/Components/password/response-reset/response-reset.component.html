@@ -1,0 +1,34 @@
+
+<section id="login" class="mb-5 mt-5" >
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
+        <div class="card_login">
+          <div class="card">
+            <div class="card-body text-center">
+              <form #ResetPasswordForm=ngForm (ngSubmit)="onSubmit()">
+                <h1 class="h3 mb-3 font-weight-normal">Confirm reset password</h1>
+                <div class="form-group">
+                  <input type="email" name="email" class="form-control"  placeholder="Email" [(ngModel)]="form.email" required>
+                    <div class="text-danger" [hidden]="!error.error">{{ error.error }}</div>
+                </div>
+                <div class="form-group">
+                  <input type="password" name="password" class="form-control" placeholder="Password" [(ngModel)]="form.password" required>
+                    <div class="text-danger" [hidden]="!error.password">{{ error.password }}</div>
+                </div>
+                <div class="form-group">
+                  <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password" [(ngModel)]="form.password_confirmation" required>
+                      <div class="text-danger" [hidden]="!error.password_confirmation">{{ error.password_confirmation }}</div>
+                </div>
+                <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="!ResetPasswordForm.valid">Change Password</button><br>
+                <small class="float-right">
+                  <a routerLink="/login">I have an account</a>
+                </small>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

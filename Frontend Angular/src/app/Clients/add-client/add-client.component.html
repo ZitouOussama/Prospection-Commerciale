@@ -1,0 +1,73 @@
+<div class="row">
+    <div class="col-12 grid-margin">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">
+             <a routerLink="/detailsClient"><i class="mdi mdi-arrow-left-bold"></i>Détails client</a>
+            </h4>
+          <form class="form-sample" (ngSubmit)="onSubmit()">
+              
+            <div class="row">
+                <div class="col-md-12 pull-right">
+                <input type="submit" class="btn btn-success pull-right ml-2" value="Enregistrer">
+                <a routerLink="/detailsClient" class="btn btn-warning pull-right">Annuler</a>
+                </div>
+            </div>
+            <p class="card-description">
+               <b> Ajouter client </b>
+            </p>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Nom</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" name="nom" [(ngModel)]="form.nom"/>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Email</label>
+                  <div class="col-sm-9">
+                    <input type="email" class="form-control" name="email" [(ngModel)]="form.email"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Tel</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="phone" [(ngModel)]="form.phone"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <p class="card-description">
+              Address
+            </p>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Country</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" name="country" [(ngModel)]="form.country"/>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">City</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" name="city" [(ngModel)]="form.city"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+  </div>
